@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ALL IN ONE Germany</title>
+
+<style>
+/* ---------- GRUNDSTIL ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: radial-gradient(circle at top, #1a1a1a, #000);
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* ---------- HINTERGRUND BLUR ---------- */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(120deg, #111, #222, #111);
+    filter: blur(60px);
+    z-index: -1;
+}
+
+/* ---------- HEADER ---------- */
+header {
+    text-align: center;
+    padding: 60px 20px 40px;
+}
+
+header h1 {
+    font-size: 3rem;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+header p {
+    max-width: 800px;
+    margin: auto;
+    font-size: 1.1rem;
+    color: #ccc;
+    line-height: 1.6;
+}
+
+/* ---------- LAYOUT ---------- */
+.container {
+    display: flex;
+    gap: 40px;
+    padding: 40px;
+    max-width: 1400px;
+    margin: auto;
+}
+
+.box {
+    flex: 1;
+    background: rgba(20, 20, 20, 0.9);
+    padding: 30px;
+    border-radius: 16px;
+    position: relative;
+}
+
+/* ---------- LED ANIMATION (LINKER KASTEN) ---------- */
+.led-box::before {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    border-radius: 18px;
+    background: linear-gradient(
+        90deg,
+        red,
+        orange,
+        yellow,
+        lime,
+        cyan,
+        blue,
+        magenta,
+        red
+    );
+    background-size: 400%;
+    animation: led 6s linear infinite;
+    z-index: -1;
+}
+
+@keyframes led {
+    0% { background-position: 0%; }
+    100% { background-position: 400%; }
+}
+
+/* ---------- TITEL ---------- */
+.box h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+}
+
+/* ---------- TEXT ---------- */
+.box p, .box li {
+    color: #ddd;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.separator {
+    margin: 20px 0;
+    text-align: center;
+    color: #555;
+}
+
+/* ---------- TEAM ---------- */
+.team-section h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #aaa;
+}
+
+.team-member {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #444, #777);
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+    position: fixed;
+    bottom: 15px;
+    right: 20px;
+    font-size: 0.9rem;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>ALL IN ONE Germany</h1>
+    <p>
+        Ein Platz für jeden, jederzeit und überall!<br><br>
+        Hier findet ihr fast alles was ihr sucht, wenn ihr noch eine Idee habt was wir hinzufügen könnten,
+        schreibt uns einfach an!<br><br>
+        Wir wünschen allen sehr viel Spaß auf dem Discord-Server!
+    </p>
+</header>
+
+<div class="container">
+
+    <!-- LINKER KASTEN -->
+    <div class="box led-box">
+        <h2>ÜBER UNS</h2>
+
+        <p>🛡️ <b>Moderation & Sicherheit</b></p>
+        <p>
+            Der Server hat den Automod von Discord eingerichtet und auch einen Discord-Automod-Bot,
+            der Nachrichten direkt blockiert und Member verwarnt oder bei Wiederholung automatisch timeoutet.
+        </p>
+
+        <div class="separator">➖➖➖➖➖➖➖➖➖➖</div>
+
+        <p>🎲 <b>Spiel & Spaß</b></p>
+        <p>
+            Wir haben eine extra Kategorie, in der ihr Spiele spielen und euch batteln könnt.
+        </p>
+        <ul>
+            <li>Tic Tac Toe</li>
+            <li>Errate die Zahl</li>
+        </ul>
+        <p>
+            Außerdem könnt ihr den Server-Baum gießen oder im Counting-Channel zählen!
+        </p>
+
+        <p>🎮 <b>Gaming</b></p>
+        <p>
+            Eigene Gaming-Kategorie mit mehreren Spielen – Wünsche sind immer willkommen!
+        </p>
+
+        <p>📝 <b>Levelrangliste</b></p>
+        <p>
+            Battelt euch mit anderen Mitgliedern um das höchste Level.
+        </p>
+
+        <div class="separator">➖➖➖➖➖➖➖➖➖➖</div>
+
+        <p>💬 <b>Chat & Aktivität</b></p>
+        <p>
+            Text- und Voice-Chats für alle Mitglieder.
+        </p>
+
+        <div class="separator">➖➖➖➖➖➖➖➖➖➖</div>
+
+        <p>❓ <b>Hilfe & Support</b></p>
+        <p>
+            Öffnet jederzeit ein Ticket – wir antworten so schnell wie möglich.
+        </p>
+    </div>
+
+    <!-- RECHTER KASTEN -->
+    <div class="box team-section">
+        <h2>UNSER TEAM</h2>
+
+        <h3>Gründer</h3>
+        <div class="team-member"><div class="avatar"></div> Luca</div>
+        <div class="team-member"><div class="avatar"></div> Klara</div>
+        <div class="team-member"><div class="avatar"></div> Rene</div>
+
+        <h3>Manager</h3>
+        <div class="team-member"><div class="avatar"></div> Luca</div>
+        <div class="team-member"><div class="avatar"></div> Klara</div>
+
+        <h3>Moderatoren Leitung</h3>
+        <div class="team-member"><div class="avatar"></div> Luca</div>
+
+        <h3>Moderator</h3>
+        <div class="team-member"><div class="avatar"></div> Tobias</div>
+        <div class="team-member"><div class="avatar"></div> Samuel</div>
+        <div class="team-member"><div class="avatar"></div> Klara</div>
+        <div class="team-member"><div class="avatar"></div> Noah</div>
+
+        <h3>Developer</h3>
+        <div class="team-member"><div class="avatar"></div> Kuba_e45</div>
+    </div>
+
+</div>
+
+<footer>
+    <a href="https://website.blue-lol.de" target="_blank">
+        Powered by Blue ⚡
+    </a>
+</footer>
+
+</body>
+</html>
