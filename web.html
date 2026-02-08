@@ -14,23 +14,23 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-/* ---------- SCROLLBAR UNSICHTBAR ---------- */
+/* Scrollbar unsichtbar */
 body {
-    scrollbar-width: none; /* Firefox */
+    scrollbar-width: none;
+    overflow-x: hidden;
 }
 body::-webkit-scrollbar {
-    display: none; /* Chrome, Edge */
+    display: none;
 }
 
-/* ---------- BODY ---------- */
+/* Body + Hintergrund */
 body {
     min-height: 100vh;
     background: radial-gradient(circle at top, #1a1a1a, #000);
     color: #fff;
-    overflow-x: hidden;
 }
 
-/* ---------- HINTERGRUND BLUR ---------- */
+/* Blur Background */
 body::before {
     content: "";
     position: fixed;
@@ -40,18 +40,15 @@ body::before {
     z-index: -1;
 }
 
-/* ---------- HEADER ---------- */
+/* Header */
 header {
     text-align: center;
     padding: 60px 20px 40px;
 }
-
 header h1 {
     font-size: 3rem;
     margin-bottom: 15px;
-    letter-spacing: 2px;
 }
-
 header p {
     max-width: 800px;
     margin: auto;
@@ -59,7 +56,7 @@ header p {
     line-height: 1.6;
 }
 
-/* ---------- LAYOUT ---------- */
+/* Layout */
 .container {
     display: flex;
     gap: 40px;
@@ -70,13 +67,13 @@ header p {
 
 .box {
     flex: 1;
-    background: rgba(20, 20, 20, 0.9);
+    background: rgba(20,20,20,0.9);
     padding: 30px;
     border-radius: 16px;
     position: relative;
 }
 
-/* ---------- LED ANIMATION (BEIDE KÄSTEN) ---------- */
+/* LED Animation */
 .led-box::before {
     content: "";
     position: absolute;
@@ -84,14 +81,7 @@ header p {
     border-radius: 18px;
     background: linear-gradient(
         90deg,
-        red,
-        orange,
-        yellow,
-        lime,
-        cyan,
-        blue,
-        magenta,
-        red
+        red, orange, yellow, lime, cyan, blue, magenta, red
     );
     background-size: 400%;
     animation: led 6s linear infinite;
@@ -99,20 +89,13 @@ header p {
 }
 
 @keyframes led {
-    0% { background-position: 0%; }
-    100% { background-position: 400%; }
+    from { background-position: 0%; }
+    to { background-position: 400%; }
 }
 
-/* ---------- TITEL ---------- */
 .box h2 {
     text-align: center;
     margin-bottom: 25px;
-}
-
-/* ---------- TEXT ---------- */
-.box p, li {
-    color: #ddd;
-    line-height: 1.6;
 }
 
 .separator {
@@ -121,20 +104,13 @@ header p {
     color: #555;
 }
 
-/* ---------- TEAM ---------- */
-.team-section h3 {
-    margin-top: 20px;
-    margin-bottom: 10px;
-    color: #aaa;
-}
-
+/* Team */
 .team-member {
     display: flex;
     align-items: center;
     gap: 12px;
     margin-bottom: 8px;
 }
-
 .avatar {
     width: 42px;
     height: 42px;
@@ -142,65 +118,76 @@ header p {
     background: linear-gradient(135deg, #444, #777);
 }
 
-/* ---------- MENU BUTTON ---------- */
+/* ---------- MENU ---------- */
 .menu-wrapper {
     display: flex;
     justify-content: center;
-    margin-bottom: 80px;
+    margin-bottom: 100px;
 }
 
-.menu-btn {
-    padding: 14px 40px;
-    border-radius: 30px;
-    border: none;
-    font-size: 1.1rem;
-    cursor: pointer;
-    background: linear-gradient(135deg, #333, #555);
-    color: white;
-    transition: 0.3s;
-}
-
-.menu-btn:hover {
-    transform: scale(1.05);
-}
-
-/* ---------- DROPDOWN MENU ---------- */
-.menu {
-    margin-top: 20px;
-    display: none;
+.menu-container {
+    width: 280px;
     text-align: center;
 }
 
-.menu a {
-    display: block;
-    margin: 10px 0;
+.menu-btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 18px 18px 0 0;
+    cursor: pointer;
+    background: linear-gradient(135deg, #333, #555);
     color: #fff;
+}
+
+/* Menü Kasten */
+.menu-box {
+    background: rgba(20,20,20,0.95);
+    border-radius: 0 0 18px 18px;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: 
+        max-height 0.5s ease,
+        opacity 0.4s ease,
+        transform 0.4s ease;
+}
+
+.menu-box.active {
+    max-height: 300px;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.menu-box a {
+    display: block;
+    padding: 14px;
     text-decoration: none;
-    font-size: 1.05rem;
+    color: #fff;
+    border-top: 1px solid #333;
 }
 
-.menu a:hover {
-    text-decoration: underline;
+.menu-box a:hover {
+    background: rgba(255,255,255,0.05);
 }
 
-/* ---------- FOOTER ---------- */
+/* Footer */
 footer {
     position: fixed;
     bottom: 15px;
     right: 20px;
-    font-size: 0.9rem;
 }
-
 footer a {
     color: #fff;
     text-decoration: none;
 }
-
 footer a:hover {
     text-decoration: underline;
 }
 
-/* ---------- RESPONSIVE ---------- */
+/* Responsive */
 @media (max-width: 900px) {
     .container {
         flex-direction: column;
@@ -215,8 +202,8 @@ footer a:hover {
     <h1>ALL IN ONE Germany</h1>
     <p>
         Ein Platz für jeden, jederzeit und überall!<br><br>
-        Hier findet ihr fast alles was ihr sucht, wenn ihr noch eine Idee habt,
-        schreibt uns einfach an!<br><br>
+        Hier findet ihr fast alles, was ihr sucht. 
+        Wenn ihr noch eine Idee habt, schreibt uns einfach an!<br><br>
         Wir wünschen allen sehr viel Spaß auf dem Discord-Server!
     </p>
 </header>
@@ -226,23 +213,54 @@ footer a:hover {
     <!-- LINKER KASTEN -->
     <div class="box led-box">
         <h2>ÜBER UNS</h2>
+
         <p>🛡️ <b>Moderation & Sicherheit</b></p>
-        <p>Automod + Bot blockiert Nachrichten, warnt und timeoutet automatisch.</p>
+        <p>
+            Der Server hat den Automod von Discord eingerichtet und auch einen Discord-Automod-Bot,
+            der die Nachricht direkt blockiert und den Member verwarnt oder wenn es öfters vorkommen sollte,
+            wird der Member direkt vom Bot getimeoutet.
+        </p>
 
         <div class="separator">➖➖➖➖➖➖➖➖➖➖</div>
 
         <p>🎲 <b>Spiel & Spaß</b></p>
+        <p>
+            Wir haben eine extra Kategorie (Abteilung), wo man Spiele spielen kann und sich mit anderen batteln kann!
+        </p>
+        <p>Spiele, die ihr dort spielen könnt, sind zum Beispiel:</p>
         <ul>
             <li>Tic Tac Toe</li>
             <li>Errate die Zahl</li>
         </ul>
+        <p>
+            Aber ihr könnt auch den Server-Baum gießen oder im Counting-Channel mit anderen Mitgliedern zählen!
+        </p>
 
-        <p>🎮 <b>Gaming</b> – eigene Kategorie mit Spielwünschen</p>
-        <p>📝 <b>Levelrangliste</b> – battelt euch um Platz 1</p>
+        <p>🎮 <b>Gaming</b></p>
+        <p>
+            Für Gaming haben wir eine extra Kategorie (Abteilung), wo wir mehrere Spiele zur Auswahl haben.
+            Wir freuen uns, wenn ihr ein Spiel wünscht, das wir hinzufügen können!
+        </p>
+
+        <p>📝 <b>Levelrangliste</b></p>
+        <p>
+            Es gibt auch eine Levelrangliste, womit ihr euch mit anderen Mitgliedern batteln könnt,
+            wer das höchste Level hat.
+        </p>
 
         <div class="separator">➖➖➖➖➖➖➖➖➖➖</div>
 
-        <p>❓ <b>Hilfe & Support</b> – Ticketsystem</p>
+        <p>💬 <b>Chat & Aktivität</b></p>
+        <p>
+            Es gibt für unsere Mitglieder einen Chat und Voicechat.
+        </p>
+
+        <div class="separator">➖➖➖➖➖➖➖➖➖➖</div>
+
+        <p>❓ <b>Hilfe & Support</b></p>
+        <p>
+            Bei Fragen oder anderem könnt ihr gerne bei uns ein Ticket öffnen, und wir versuchen dann so schnell wie möglich zu antworten!
+        </p>
     </div>
 
     <!-- RECHTER KASTEN -->
@@ -250,34 +268,34 @@ footer a:hover {
         <h2>UNSER TEAM</h2>
 
         <h3>Gründer</h3>
-        <div class="team-member"><div class="avatar"></div>Luca</div>
-        <div class="team-member"><div class="avatar"></div>Klara</div>
-        <div class="team-member"><div class="avatar"></div>Rene</div>
+        <div class="team-member"><div class="avatar"></div> Luca</div>
+        <div class="team-member"><div class="avatar"></div> Klara</div>
+        <div class="team-member"><div class="avatar"></div> Rene</div>
 
         <h3>Manager</h3>
-        <div class="team-member"><div class="avatar"></div>Luca</div>
-        <div class="team-member"><div class="avatar"></div>Klara</div>
+        <div class="team-member"><div class="avatar"></div> Luca</div>
+        <div class="team-member"><div class="avatar"></div> Klara</div>
 
         <h3>Moderatoren Leitung</h3>
-        <div class="team-member"><div class="avatar"></div>Luca</div>
+        <div class="team-member"><div class="avatar"></div> Luca</div>
 
         <h3>Moderator</h3>
-        <div class="team-member"><div class="avatar"></div>Tobias</div>
-        <div class="team-member"><div class="avatar"></div>Samuel</div>
-        <div class="team-member"><div class="avatar"></div>Klara</div>
-        <div class="team-member"><div class="avatar"></div>Noah</div>
+        <div class="team-member"><div class="avatar"></div> Tobias</div>
+        <div class="team-member"><div class="avatar"></div> Samuel</div>
+        <div class="team-member"><div class="avatar"></div> Klara</div>
+        <div class="team-member"><div class="avatar"></div> Noah</div>
 
         <h3>Developer</h3>
-        <div class="team-member"><div class="avatar"></div>Kuba_e45</div>
+        <div class="team-member"><div class="avatar"></div> Kuba_e45</div>
     </div>
 
 </div>
 
 <!-- MENU -->
 <div class="menu-wrapper">
-    <div>
+    <div class="menu-container">
         <button class="menu-btn" onclick="toggleMenu()">Menü</button>
-        <div class="menu" id="menu">
+        <div class="menu-box" id="menuBox">
             <a href="partners.html">Partner</a>
             <a href="team.html">Team</a>
             <a href="kontakt.html">Kontakt</a>
@@ -293,8 +311,7 @@ footer a:hover {
 
 <script>
 function toggleMenu() {
-    const menu = document.getElementById("menu");
-    menu.style.display = menu.style.display === "block" ? "none" : "block";
+    document.getElementById("menuBox").classList.toggle("active");
 }
 </script>
 
