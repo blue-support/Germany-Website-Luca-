@@ -24,11 +24,16 @@ body::-webkit-scrollbar {
     background: transparent; /* Chrome, Edge, Safari */
 }
 
-/* Body + Hintergrund */
+/* Body + Hintergrund + Zentrierung */
 body {
     min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: radial-gradient(circle at top, #1a1a1a, #000);
     color: #fff;
+    text-align: center;
+    padding: 20px;
 }
 
 body::before {
@@ -40,18 +45,19 @@ body::before {
     z-index: -1;
 }
 
-/* Header */
-header {
-    text-align: center;
-    padding: 120px 20px 80px;
+/* Content Container */
+.content {
+    max-width: 800px;
 }
-header h1 {
-    font-size: 3rem;
+
+/* Überschrift */
+h1 {
+    font-size: 2.8rem;
     margin-bottom: 20px;
 }
-header p {
-    max-width: 800px;
-    margin: auto;
+
+/* Beschreibung */
+p {
     color: #ccc;
     line-height: 1.6;
 }
@@ -74,7 +80,7 @@ footer a:hover {
 
 <body>
 
-<header>
+<div class="content">
     <h1>Diese Seite wurde von Blue ⚡ erstellt!</h1>
     <p>
         Wir, das Team von Blue, erstellen für unsere Partner kostenlos individuelle Websites. 
@@ -82,7 +88,7 @@ footer a:hover {
         alles aus einer Hand.<br><br>
         &copy; 2026 Alle Rechte vorbehalten.
     </p>
-</header>
+</div>
 
 <footer>
     <a href="https://website.blue-lol.de" target="_blank">
