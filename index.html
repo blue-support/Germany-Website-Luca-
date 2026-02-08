@@ -15,11 +15,13 @@
 
 /* Scrollbar unsichtbar */
 body {
-    scrollbar-width: none;
-    overflow-x: hidden;
+    overflow-x: hidden; /* horizontaler Scrollbalken ausblenden */
+    overflow-y: auto;   /* vertikales Scrollen möglich */
+    scrollbar-width: none; /* Firefox */
 }
 body::-webkit-scrollbar {
-    display: none;
+    width: 0px;
+    background: transparent; /* Chrome, Edge, Safari */
 }
 
 /* Body + Hintergrund */
