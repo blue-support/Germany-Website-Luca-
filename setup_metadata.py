@@ -23,6 +23,12 @@ json_data = [
         "key": "teammitglied",
         "name": "Teammitglied",
         "description": "Diese Rolle besitzen alle Teammitglieder"
+    },
+    {
+        "type": 7,
+        "key": "eigentümer",
+        "name": "Eigentümer",
+        "description": "Diese Rolle besitzen alle Eigentümer"
     }
 ]
 
